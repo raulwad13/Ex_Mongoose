@@ -1,7 +1,18 @@
-const fetch = require('node-fetch');
 const productsController = require('../controllers/products.controller');
-const router = require('express').Router();
+const routerProducts = require('express').Router();
 
-router.get("/:id?", productsController.getProduct);
 
-module.exports = router;
+
+// POST
+routerProducts.post("/", productsController.createProduct);
+
+// GET
+routerProducts.get("/", productsController.getProduct);
+
+// PUT
+routerProducts.put("/", productsController.editProduct);
+
+// DELETE
+routerProducts.delete("/", productsController.deleteProduct);
+
+module.exports = routerProducts;
